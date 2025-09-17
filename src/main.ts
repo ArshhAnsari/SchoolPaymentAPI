@@ -6,6 +6,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   // --- Global Validation Pipe ---
+  app.enableCors(); // Enable for CORS if needed
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true, // Strips away any properties not defined in the DTO
